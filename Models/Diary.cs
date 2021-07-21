@@ -15,5 +15,5 @@ namespace WebApp.Models
         [DataType(DataType.DateTime)]
         public DateTime DateTimeEnd { get; set; }
         public string Place { get; set; }
-    }    
+    }
 }

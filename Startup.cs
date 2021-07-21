@@ -26,6 +26,9 @@ namespace WebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.AddDbContext<WebAppDiaryContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("WebAppDiaryContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

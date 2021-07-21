@@ -10,7 +10,7 @@ using WebApp.Data;
 namespace WebApp.Migrations
 {
     [DbContext(typeof(WebAppDiaryContext))]
-    [Migration("20210721125853_InitialCreate")]
+    [Migration("20210721143620_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,7 +34,7 @@ namespace WebApp.Migrations
                     b.Property<DateTime>("DateTimeEnd")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("DiaryTypeId")
+                    b.Property<int?>("DiaryTypeID")
                         .HasColumnType("int");
 
                     b.Property<string>("Place")
@@ -44,6 +44,8 @@ namespace WebApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("DiaryTypeID");
 
                     b.ToTable("Diary");
                 });
@@ -61,6 +63,15 @@ namespace WebApp.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("DiaryType");
+                });
+
+            modelBuilder.Entity("WebApp.Models.Diary", b =>
+                {
+                    b.HasOne("WebApp.Models.DiaryType", "DiaryType")
+                        .WithMany()
+                        .HasForeignKey("DiaryTypeID");
+
+                    b.Navigation("DiaryType");
                 });
 #pragma warning restore 612, 618
         }

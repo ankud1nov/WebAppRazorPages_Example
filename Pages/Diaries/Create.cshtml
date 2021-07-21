@@ -14,9 +14,10 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Diary.DiaryTypeId" class="control-label"></label>
-                <input asp-for="Diary.DiaryTypeId" class="form-control" />
-                <span asp-validation-for="Diary.DiaryTypeId" class="text-danger"></span>
+                <label asp-for="Diary.DiaryType" class="control-label">Тип записи</label>
+                @*<input asp-for="Diary.DiaryType.Type" class="form-control" />*@
+            <select asp-for="Diary.DiaryType" asp-items="Model._DiaryType"></select>
+                <span asp-validation-for="Diary.DiaryType.Type" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Diary.Subject" class="control-label"></label>

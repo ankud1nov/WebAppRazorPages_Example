@@ -12,9 +12,9 @@ namespace WebApp.Pages.Diaries
 {
     public class IndexModel : PageModel
     {
-        private readonly WebApp.Data.WebAppDiaryContext _context;
+        private readonly WebAppDiaryContext _context;
 
-        public IndexModel(WebApp.Data.WebAppDiaryContext context)
+        public IndexModel(WebAppDiaryContext context)
         {
             _context = context;
         }

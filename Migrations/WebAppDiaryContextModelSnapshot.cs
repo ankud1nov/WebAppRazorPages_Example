@@ -32,7 +32,7 @@ namespace WebApp.Migrations
                     b.Property<DateTime>("DateTimeEnd")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("DiaryTypeId")
+                    b.Property<int?>("DiaryTypeID")
                         .HasColumnType("int");
 
                     b.Property<string>("Place")
@@ -42,6 +42,8 @@ namespace WebApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("DiaryTypeID");
 
                     b.ToTable("Diary");
                 });
@@ -59,6 +61,15 @@ namespace WebApp.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("DiaryType");
+                });
+
+            modelBuilder.Entity("WebApp.Models.Diary", b =>
+                {
+                    b.HasOne("WebApp.Models.DiaryType", "DiaryType")
+                        .WithMany()
+                        .HasForeignKey("DiaryTypeID");
+
+                    b.Navigation("DiaryType");
                 });
 #pragma warning restore 612, 618
         }

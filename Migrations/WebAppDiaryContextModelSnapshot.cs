@@ -45,6 +45,21 @@ namespace WebApp.Migrations
 
                     b.ToTable("Diary");
                 });
+
+            modelBuilder.Entity("WebApp.Models.DiaryType", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("DiaryType");
+                });
 #pragma warning restore 612, 618
         }
     }

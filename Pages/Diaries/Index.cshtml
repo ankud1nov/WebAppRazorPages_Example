@@ -8,25 +8,31 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Добавить запись</a>
+    <a asp-page="/Diaries/DiariesTypes/index">Типы записей</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Diary[0].DiaryTypeId)
+                @*@Html.DisplayNameFor(model => model.Diary[0].DiaryTypeId)*@
+                Тип записи
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Diary[0].Subject)
+                @*@Html.DisplayNameFor(model => model.Diary[0].Subject)*@
+                Тема
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Diary[0].DateTimeBegin)
+                @*@Html.DisplayNameFor(model => model.Diary[0].DateTimeBegin)*@
+                Дата и время начала
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Diary[0].DateTimeEnd)
+                @*@Html.DisplayNameFor(model => model.Diary[0].DateTimeEnd)*@
+                Дата и время окончания
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Diary[0].Place)
+                @*@Html.DisplayNameFor(model => model.Diary[0].Place)*@
+                Место
             </th>
             <th></th>
         </tr>
@@ -50,9 +56,9 @@
                 @Html.DisplayFor(modelItem => item.Place)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Изменить</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Детали</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Удалить</a>
             </td>
         </tr>
 }

@@ -15,5 +15,7 @@ namespace WebApp.Data
         }
 
         public DbSet<Diary> Diary { get; set; }
+
+        public DbSet<DiaryType> DiaryType { get; set; }
     }
 }

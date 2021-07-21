@@ -10,7 +10,7 @@ using WebApp.Data;
 namespace WebApp.Migrations
 {
     [DbContext(typeof(WebAppDiaryContext))]
-    [Migration("20210721122818_InitialCreate")]
+    [Migration("20210721125853_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,6 +46,21 @@ namespace WebApp.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Diary");
+                });
+
+            modelBuilder.Entity("WebApp.Models.DiaryType", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("DiaryType");
                 });
 #pragma warning restore 612, 618
         }

@@ -23,12 +23,28 @@ namespace WebApp.Migrations
                 {
                     table.PrimaryKey("PK_Diary", x => x.ID);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "DiaryType",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DiaryType", x => x.ID);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Diary");
+
+            migrationBuilder.DropTable(
+                name: "DiaryType");
         }
     }
 }

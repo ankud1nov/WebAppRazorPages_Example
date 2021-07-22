@@ -20,10 +20,12 @@ namespace WebApp.Pages.Diaries
         }
 
         public IList<Diary> Diary { get;set; }
+        public IList<DiaryType> DiaryType { get; set; }
 
         public async Task OnGetAsync()
         {
             Diary = await _context.Diary.ToListAsync();
+            DiaryType = await _context.DiaryType.ToListAsync();
         }
     }
 }

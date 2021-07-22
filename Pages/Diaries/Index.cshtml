@@ -38,29 +38,63 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Diary) {
+        @foreach (var item in Model.Diary)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaryType.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTimeBegin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTimeEnd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Place)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Изменить</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Детали</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Удалить</a>
+                </td>
+            </tr>
+        }        
+    </tbody>
+
+</table>
+<table>
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiaryType.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Subject)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateTimeBegin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateTimeEnd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Place)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Изменить</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Детали</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Удалить</a>
-            </td>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Diary[0].DiaryTypeId)*@
+                ID
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Diary[0].Subject)*@
+                Тема
+            </th>            
         </tr>
-}
+    </thead>
+    <tbody>
+        @foreach (var item in Model.DiaryType)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(mo => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(mo => item.Type)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Изменить</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Детали</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Удалить</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

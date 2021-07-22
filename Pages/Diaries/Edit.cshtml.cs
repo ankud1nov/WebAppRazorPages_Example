@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -8,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebApp.Data;
 using WebApp.Models;
+using WebApp.Models.DBFunction;
 
 namespace WebApp.Pages.Diaries
 {
     public class EditModel : PageModel
     {
-        private readonly WebApp.Data.WebAppDiaryContext _context;
+        private readonly WebAppDiaryContext _context;
+        public SelectList _DiaryType;
 
-        public EditModel(WebApp.Data.WebAppDiaryContext context)
+        public EditModel(WebAppDiaryContext context)
         {
             _context = context;
+            _DiaryType = new SelectList(_context.DiaryType.ToList(), "ID", "Type");
         }
 
         [BindProperty]
@@ -47,6 +49,8 @@ namespace WebApp.Pages.Diaries
             {
                 return Page();
             }
+
+            Diary.DiaryType = Gets.GetDiaryType(Diary.DiaryType.ID, _context);
 
             _context.Attach(Diary).State = EntityState.Modified;
 

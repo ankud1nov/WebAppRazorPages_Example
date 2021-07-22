@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebApp.Data;
 using WebApp.Models;
+using WebApp.Models.DBFunction;
 
 namespace WebApp.Pages.Diaries
 {
@@ -25,7 +26,6 @@ namespace WebApp.Pages.Diaries
         [BindProperty]
         public Diary Diary { get; set; }
 
-
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
@@ -33,6 +33,8 @@ namespace WebApp.Pages.Diaries
             {
                 return Page();
             }
+
+            Diary.DiaryType = Gets.GetDiaryType(Diary.DiaryType.ID, _context);
 
             _context.Diary.Add(Diary);
             await _context.SaveChangesAsync();

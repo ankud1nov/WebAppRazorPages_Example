@@ -16,9 +16,8 @@
             <input type="hidden" asp-for="Diary.ID" />
             <div class="form-group">
                 <label asp-for="Diary.DiaryType.ID" class="control-label">Тип записи</label>
-                @*<input asp-for="Diary.DiaryType" class="form-control" />*@
                 <select asp-for="Diary.DiaryType.ID" asp-items="Model._DiaryType"></select>
-                <span asp-validation-for="Diary.ID" class="text-danger"></span>
+                <span asp-validation-for="Diary.DiaryType.ID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Diary.Subject" class="control-label"></label>

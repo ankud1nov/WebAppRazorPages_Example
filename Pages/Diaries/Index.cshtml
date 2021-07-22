@@ -64,37 +64,5 @@
             </tr>
         }        
     </tbody>
+</table>
 
-</table>
-<table>
-    <thead>
-        <tr>
-            <th>
-                @*@Html.DisplayNameFor(model => model.Diary[0].DiaryTypeId)*@
-                ID
-            </th>
-            <th>
-                @*@Html.DisplayNameFor(model => model.Diary[0].Subject)*@
-                Тема
-            </th>            
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.DiaryType)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(mo => item.ID)
-                </td>
-                <td>
-                    @Html.DisplayFor(mo => item.Type)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.ID">Изменить</a> |
-                    <a asp-page="./Details" asp-route-id="@item.ID">Детали</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.ID">Удалить</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>

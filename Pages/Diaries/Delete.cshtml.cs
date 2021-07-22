@@ -29,7 +29,7 @@ namespace WebApp.Pages.Diaries
                 return NotFound();
             }
 
-            Diary = await _context.Diary.FirstOrDefaultAsync(m => m.ID == id);
+            Diary = await _context.Diaries.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Diary == null)
             {
@@ -45,11 +45,11 @@ namespace WebApp.Pages.Diaries
                 return NotFound();
             }
 
-            Diary = await _context.Diary.FindAsync(id);
+            Diary = await _context.Diaries.FindAsync(id);
 
             if (Diary != null)
             {
-                _context.Diary.Remove(Diary);
+                _context.Diaries.Remove(Diary);
                 await _context.SaveChangesAsync();
             }
 

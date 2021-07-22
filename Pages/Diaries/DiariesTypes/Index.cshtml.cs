@@ -20,7 +20,7 @@ namespace WebApp.Pages.Diaries.DiariesTypes
 
         public async Task OnGetAsync()
         {
-            DiaryType = await _context.DiaryType.ToListAsync();
+            DiaryType = await _context.DiariesTypes.ToListAsync();
         }
     }
 }

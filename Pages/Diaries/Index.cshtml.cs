@@ -24,8 +24,8 @@ namespace WebApp.Pages.Diaries
 
         public async Task OnGetAsync()
         {
-            Diary = await _context.Diary.ToListAsync();
-            DiaryType = await _context.DiaryType.ToListAsync();
+            Diary = await _context.Diaries.ToListAsync();
+            DiaryType = await _context.DiariesTypes.ToListAsync();
         }
     }
 }

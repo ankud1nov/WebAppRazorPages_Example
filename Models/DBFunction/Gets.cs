@@ -7,11 +7,11 @@ namespace WebApp.Models.DBFunction
     {
         public static DiaryType GetDiaryType(int ID, WebAppDiaryContext context)
         {
-            return context.DiaryType.Where(x => x.ID == ID).SingleOrDefault();
+            return context.DiariesTypes.Where(x => x.ID == ID).SingleOrDefault();
         }
         public static DiaryType GetDiaryType(string type, WebAppDiaryContext context)
         {
-            return context.DiaryType.Where(x => x.Type == type).SingleOrDefault();
+            return context.DiariesTypes.Where(x => x.Type == type).SingleOrDefault();
         }
     }
 }

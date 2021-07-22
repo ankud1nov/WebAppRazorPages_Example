@@ -35,7 +35,7 @@ namespace WebApp.Pages.Diaries.DiariesTypes
                 return Page();
             }
 
-            _context.DiaryType.Add(DiaryType);
+            _context.DiariesTypes.Add(DiaryType);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

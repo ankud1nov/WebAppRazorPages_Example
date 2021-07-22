@@ -20,7 +20,7 @@ namespace WebApp.Pages.Diaries
         public CreateModel(WebAppDiaryContext context)
         {
             _context = context;
-            _DiaryType = new SelectList(_context.DiaryType.ToList(), "ID", "Type");
+            _DiaryType = new SelectList(_context.DiariesTypes.ToList(), "ID", "Type");
         }
 
         [BindProperty]
@@ -36,7 +36,7 @@ namespace WebApp.Pages.Diaries
 
             Diary.DiaryType = Gets.GetDiaryType(Diary.DiaryType.ID, _context);
 
-            _context.Diary.Add(Diary);
+            _context.Diaries.Add(Diary);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

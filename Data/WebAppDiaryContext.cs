@@ -9,10 +9,13 @@ namespace WebApp.Data
             : base(options)
         {
         }
-        public DbSet<DiaryType> DiaryType { get; set; }
+        public DbSet<DiaryType> DiariesTypes { get; set; }
+        public DbSet<Diary> Diaries { get; set; }
 
-        public DbSet<Diary> Diary { get; set; }
-
-        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<DiaryType>().ToTable("DiaryType");
+            modelBuilder.Entity<Diary>().ToTable("Diary");
+        }
     }
 }

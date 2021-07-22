@@ -19,7 +19,7 @@ namespace WebApp.Pages.Diaries
         public EditModel(WebAppDiaryContext context)
         {
             _context = context;
-            _DiaryType = new SelectList(_context.DiaryType.ToList(), "ID", "Type");
+            _DiaryType = new SelectList(_context.DiariesTypes.ToList(), "ID", "Type");
         }
 
         [BindProperty]
@@ -32,7 +32,7 @@ namespace WebApp.Pages.Diaries
                 return NotFound();
             }
 
-            Diary = await _context.Diary.FirstOrDefaultAsync(m => m.ID == id);
+            Diary = await _context.Diaries.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Diary == null)
             {
@@ -75,7 +75,7 @@ namespace WebApp.Pages.Diaries
 
         private bool DiaryExists(int id)
         {
-            return _context.Diary.Any(e => e.ID == id);
+            return _context.Diaries.Any(e => e.ID == id);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace WebApp.Pages.Diaries.DiariesTypes
                 return NotFound();
             }
 
-            DiaryType = await _context.DiaryType.FirstOrDefaultAsync(m => m.ID == id);
+            DiaryType = await _context.DiariesTypes.FirstOrDefaultAsync(m => m.ID == id);
 
             if (DiaryType == null)
             {
@@ -45,11 +45,11 @@ namespace WebApp.Pages.Diaries.DiariesTypes
                 return NotFound();
             }
 
-            DiaryType = await _context.DiaryType.FindAsync(id);
+            DiaryType = await _context.DiariesTypes.FindAsync(id);
 
             if (DiaryType != null)
             {
-                _context.DiaryType.Remove(DiaryType);
+                _context.DiariesTypes.Remove(DiaryType);
                 await _context.SaveChangesAsync();
             }
 

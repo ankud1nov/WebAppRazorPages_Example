@@ -30,7 +30,7 @@ namespace WebApp.Pages.Diaries.DiariesTypes
                 return NotFound();
             }
 
-            DiaryType = await _context.DiaryType.FirstOrDefaultAsync(m => m.ID == id);
+            DiaryType = await _context.DiariesTypes.FirstOrDefaultAsync(m => m.ID == id);
 
             if (DiaryType == null)
             {
@@ -71,7 +71,7 @@ namespace WebApp.Pages.Diaries.DiariesTypes
 
         private bool DiaryTypeExists(int id)
         {
-            return _context.DiaryType.Any(e => e.ID == id);
+            return _context.DiariesTypes.Any(e => e.ID == id);
         }
     }
 }

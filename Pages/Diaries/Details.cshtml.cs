@@ -28,7 +28,7 @@ namespace WebApp.Pages.Diaries
                 return NotFound();
             }
 
-            Diary = await _context.Diary.FirstOrDefaultAsync(m => m.ID == id);
+            Diary = await _context.Diaries.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Diary == null)
             {
